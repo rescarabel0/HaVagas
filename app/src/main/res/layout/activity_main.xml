@@ -1,18 +1,287 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:id="@+id/main_sv">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:orientation="vertical"
+        android:id="@+id/main_Ll">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/cadastre_se"
+            android:textSize="25sp"
+            android:textAlignment="center"
+            android:padding="5dp"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/nome_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:minHeight="48dp"
+            android:inputType="textPersonName"
+            android:autofillHints="name"
+            android:hint="@string/nome"/>
+
+        <EditText
+            android:id="@+id/email_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:minHeight="48dp"
+            android:inputType="textEmailAddress"
+            android:autofillHints="emailAddress"
+            android:hint="@string/email"/>
+
+        <CheckBox
+            android:id="@+id/email_att_cb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:text="@string/email_att"/>
+
+        <EditText
+            android:id="@+id/telefone_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:minHeight="48dp"
+            android:inputType="phone"
+            android:autofillHints="phone"
+            android:hint="@string/telefone"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <CheckBox
+                android:id="@+id/celular_cb"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:text="@string/celular"/>
+
+            <EditText
+                android:id="@+id/celular_et"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:minHeight="48dp"
+                android:inputType="phone"
+                android:autofillHints="phone"
+                android:visibility="gone"
+                android:hint="@string/celular"/>
+        </LinearLayout>
+
+        <RadioGroup
+            android:id="@+id/sexo_rg"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/masculino_rb"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/masculino"/>
+            <RadioButton
+                android:id="@+id/feminino_rb"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/feminino"/>
+            <RadioButton
+                android:id="@+id/outro_rb"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="@string/outro"/>
+        </RadioGroup>
+
+        <EditText
+            android:id="@+id/birthdate_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="date"
+            android:hint="@string/data_de_nascimento"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:minHeight="48dp"
+            android:importantForAutofill="no"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:text="@string/formacao"/>
+
+        <Spinner
+            android:id="@+id/formacao_sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:entries="@array/formacao"/>
+
+        <EditText
+            android:id="@+id/ano_formatura_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:importantForAutofill="no"
+            android:hint="@string/ano_de_formatura"
+            android:inputType="number"
+            android:visibility="gone"/>
+
+        <LinearLayout
+            android:id="@+id/grad_espec_Ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:visibility="gone">
+            <EditText
+                android:id="@+id/ano_conclusao_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:importantForAutofill="no"
+                android:hint="@string/ano_de_conclusao"
+                android:inputType="number"/>
+
+            <EditText
+                android:id="@+id/instituicao_et"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:minHeight="48dp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:importantForAutofill="no"
+                android:hint="@string/instituicao"
+                android:inputType="text"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/mest_doc_Ll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/ano_conclusao_2_et"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+                    android:importantForAutofill="no"
+                    android:hint="@string/ano_de_conclusao"
+                    android:inputType="number"/>
+
+                <EditText
+                    android:id="@+id/instituicao_2_et"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+                    android:importantForAutofill="no"
+                    android:hint="@string/instituicao"
+                    android:inputType="text"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <EditText
+                    android:id="@+id/monografia_et"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+                    android:importantForAutofill="no"
+                    android:hint="@string/tit_de_monografia"
+                    android:inputType="textPersonName"/>
+
+                <EditText
+                    android:id="@+id/orientador_et"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:minHeight="48dp"
+                    android:padding="5dp"
+                    android:layout_margin="5dp"
+                    android:importantForAutofill="no"
+                    android:hint="@string/orientador"
+                    android:inputType="textPersonName"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/vagas_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:padding="5dp"
+            android:layout_margin="5dp"
+            android:importantForAutofill="no"
+            android:hint="@string/vagas_de_interesse"
+            android:inputType="text"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+            <Button
+                android:id="@+id/salvar_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/salvar"/>
+
+            <Button
+                android:id="@+id/limpar_btn"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/limpar"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</ScrollView>
